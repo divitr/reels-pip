@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Reels Picture-in-Picture",
+  "version": "1.8.0",
+  "description": "Float Instagram Reels in a Picture-in-Picture window with auto-advance, while the feed keeps loading in the background tab.",
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["visibility-patch.js", "network-observer.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start",
+      "world": "ISOLATED"
+    }
+  ]
+}

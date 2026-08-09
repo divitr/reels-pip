@@ -1,0 +1,92 @@
+#reels-pip-toggle,
+#reels-pip-toast {
+  --rp-ink: #0b0b0c;
+  --rp-shell: rgba(22, 22, 24, 0.82);
+  --rp-shell-lift: rgba(44, 44, 48, 0.92);
+  --rp-edge: rgba(255, 255, 255, 0.14);
+  --rp-glyph: #ffffff;
+
+  box-sizing: border-box;
+  position: fixed;
+  right: 24px;
+  z-index: 2147483647;
+  margin: 0;
+  border: 1px solid var(--rp-edge);
+  border-radius: 10px;
+  background: var(--rp-shell);
+  color: var(--rp-glyph);
+  font: 500 12px/1.35 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+}
+
+#reels-pip-toggle {
+  bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  transition: background-color 140ms ease, color 140ms ease, border-color 140ms ease,
+    transform 140ms ease;
+}
+
+#reels-pip-toggle svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+#reels-pip-toggle:hover {
+  background: var(--rp-shell-lift);
+}
+
+#reels-pip-toggle:active {
+  transform: scale(0.94);
+}
+
+#reels-pip-toggle:focus-visible {
+  outline: 2px solid var(--rp-glyph);
+  outline-offset: 2px;
+}
+
+#reels-pip-toggle.is-on {
+  background: var(--rp-glyph);
+  border-color: transparent;
+  color: var(--rp-ink);
+}
+
+#reels-pip-toggle.is-on .rp-pane {
+  fill: currentColor;
+}
+
+#reels-pip-toast {
+  bottom: 76px;
+  max-width: 264px;
+  padding: 9px 12px;
+  pointer-events: none;
+  animation: reels-pip-toast-in 140ms ease both;
+}
+
+@keyframes reels-pip-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #reels-pip-toggle {
+    transition: none;
+  }
+
+  #reels-pip-toast {
+    animation: none;
+  }
+}
